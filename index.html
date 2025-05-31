@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h3> 
+        Rock Paper Scissors 
+    </h3>
+
+    <button class="game_button" onclick="playGame('Rock')">
+        <span class="emoji">✊</span>
+        <span class="label">Rock</span>
+    </button>
+    <button class="game_button" onclick="playGame('Paper')">
+        <span class="emoji">✋</span>
+        <span class="label">Paper</span>
+    </button>
+    <button class="game_button"  onclick="playGame('Scissors')">
+        <span class="emoji">✌️</span>
+        <span class="label">Scissors</span>
+    </button>
+    <p id="result">
+
+    </p>
+
+    <script>
+
+        function playGame(userChoice) {
+            const choices = ['Rock', 'Paper', 'Scissors'];
+            const emojiMap = {
+            Rock:'✊' ,
+            Paper:'✋' ,
+            Scissors: '✌️'            
+            }
+            const computerChoice = choices[Math.floor(Math.random() * choices.length)];
+            let resultText ='' ;
+            let emoji ='' ;
+
+            if (userChoice === computerChoice) {
+               resultText =  `Both chose ${emojiMap[userChoice]} ${userChoice}. It's a draw.` ;
+               emoji = '😐';
+            }
+            else if (
+                (userChoice === 'Rock' && computerChoice === 'Scissors') ||
+                (userChoice === 'Paper' && computerChoice === 'Rock') ||
+                (userChoice === 'Scissors' && computerChoice === 'Paper')
+            ) {
+                resultText = `You chose ${emojiMap[userChoice]} ${userChoice} and Computer chose ${emojiMap[computerChoice]}  ${computerChoice}. You win!`;
+                emoji = '😄🎉';
+            }
+             else {
+             resultText  =  `You chose ${emojiMap[userChoice]} ${userChoice} and Computer chose ${emojiMap[computerChoice]} ${computerChoice}. You lose.`;
+             emoji = '😢💔';
+            }
+
+            document.getElementById('result').innerHTML = `${resultText} ${emoji}` ;
+
+
+        }
+
+        
+       
+    </script>
+    
+
+    
+</body>
+</html>

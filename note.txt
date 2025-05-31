@@ -1,0 +1,7 @@
+In this website i am gonna make a game that is called as Rock , Paper , Scissors 
+
+Rock beats Scissors 
+Paper beats Rock 
+Scissors beats Paper
+
+
